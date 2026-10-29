@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b10">
+<title>Nebula AI — Lunar</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">✦</div><div><strong>Nebula <span>AI</span></strong><small>LUNAR WORKSPACE</small></div></div>
+  <button class="new-chat" id="newChat">＋ <span>New chat</span></button>
+  <div class="nav-label">WORKSPACE</div>
+  <button class="nav active" data-view="chat">◈ <span>Assistant</span></button>
+  <button class="nav" data-view="repository">⌘ <span>Repository</span></button>
+  <button class="nav" data-view="history">◷ <span>History</span></button>
+  <div class="sidebar-spacer"></div>
+  <div class="account-card"><div class="avatar">N</div><div><strong>Browser workspace</strong><small id="connectionState">ChatGPT opens separately</small></div><span class="status-dot"></span></div>
+  <button class="nav settings-link" data-view="settings">⚙ <span>Settings</span></button>
+</aside>
+<main class="main">
+  <header class="topbar"><div class="crumb"><span class="muted">Nebula</span><span>/</span><strong id="viewTitle">Assistant</strong></div><div class="top-actions"><span class="online-dot"></span><span>Browser mode</span><button class="top-icon" id="themeButton" title="Toggle appearance">◐</button></div></header>
+  <section class="view current" id="chatView">
+    <div class="chat-scroll" id="chatScroll"><div class="welcome" id="welcome"><div class="orbit">✦</div><div class="eyebrow">YOUR SPACE TO THINK</div><h1>What are we working<br><span>on today?</span></h1><p>Plan, debug, explore ideas, or work through your repository.<br>When you're ready, send your prompt to ChatGPT with your existing account.</p>
+      <div class="suggestions"><button data-prompt="Help me debug this code. Ask for the relevant code and walk me through the fix."><span>⌘</span><b>Debug code</b><small>Find and fix a problem</small></button><button data-prompt="Help me plan this project into clear, manageable steps."><span>◇</span><b>Plan a project</b><small>Turn an idea into a plan</small></button><button data-prompt="Explain this concept clearly with a practical example."><span>✧</span><b>Learn something</b><small>Break down a hard topic</small></button></div>
+    </div><div class="messages" id="messages"></div></div>
+    <div class="composer-wrap"><div class="composer"><textarea id="prompt" rows="1" placeholder="Message Nebula..."></textarea><div class="composer-bottom"><div class="composer-tools"><button id="attachContext" class="tool-btn" title="Include selected repository files">＋ Add repo context</button><span id="contextCount" class="context-count"></span></div><button class="send" id="sendPrompt">↑ <span>Continue in ChatGPT</span></button></div></div><div class="composer-note">Uses your ChatGPT account in a separate tab · No API key configured or required for this workflow</div></div>
+  </section>
+  <section class="view" id="repositoryView"><div class="page-heading"><div class="eyebrow">SOURCE CONTROL</div><h1>Repository explorer</h1><p>Browse public GitHub files and add code to a prompt. Changes are not written to GitHub from this page.</p></div><div class="repo-toolbar"><input id="repoInput" value="Lun4rScrip1ts/Nebula-AI-Lunar" aria-label="GitHub repository"><button class="primary" id="loadRepo">Load repository</button></div><div class="repo-meta" id="repoMeta">Ready to load a public repository.</div><div class="repo-layout"><div class="file-list" id="fileList"><div class="empty-state">Load a repository to browse its files.</div></div><div class="file-preview"><div class="preview-head"><span id="fileName">File preview</span><button id="addFile" class="small-btn" disabled>＋ Add to prompt</button></div><pre id="fileContent">Select a file from the list to preview its contents.</pre></div></div></section>
+  <section class="view" id="historyView"><div class="page-heading"><div class="eyebrow">YOUR WORK</div><h1>Recent history</h1><p>Chats are stored in this browser only.</p></div><div id="historyItems" class="history-items"></div><button class="secondary" id="clearHistory">Clear history</button></section>
+  <section class="view" id="settingsView"><div class="page-heading"><div class="eyebrow">PREFERENCES</div><h1>Settings</h1><p>Configure the browser workspace.</p></div><div class="settings-card"><div><h3>ChatGPT connection</h3><p>This browser app cannot use ChatGPT's private internal APIs or inherit your ChatGPT login session. Use the button below to open ChatGPT in a new tab with your prompt ready to paste or review.</p></div><a class="primary link-button" href="https://chatgpt.com/" target="_blank" rel="noopener">Open ChatGPT ↗</a></div><div class="settings-card"><div><h3>Repository</h3><p>Public repository browsing uses the GitHub public API. Private repositories need a separate authorized integration.</p></div><button class="secondary" data-go="repository">Open explorer</button></div><div class="settings-card"><div><h3>Privacy</h3><p>Conversation history and selected context are saved in this browser's local storage. Do not add passwords, access tokens, or other secrets.</p></div><button class="secondary danger" id="clearLocal">Clear local data</button></div></section>
+  <div class="toast" id="toast" role="status"></div>
+</main>
+</div>
+<script src="app.js"></script>
+</body></html>
