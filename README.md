@@ -6,11 +6,11 @@ A Chromebook-friendly, static browser workspace hosted with GitHub Pages. No ins
 - Responsive Nebula-inspired chat UI.
 - Browse **public** GitHub repository files and include up to five small files in a prompt.
 - Store recent prompt history in this browser's local storage.
-- Open ChatGPT in a new tab with a prepared prompt.
+- Keeps prompts and status messages inside the current tab; it does not open ChatGPT in another tab.
 - No API key is requested or stored.
 
 ## Important AI connection limitation
-This browser edition does **not** use ChatGPT's private internal APIs and cannot inherit a ChatGPT consumer login session as an API credential. The "Continue in ChatGPT" action opens ChatGPT with the prompt query; review the prompt and send it in ChatGPT. It does not silently send messages or make ChatGPT responses appear inside this page. A supported API/backend integration would be required for direct in-page AI responses, and that is intentionally not included here.
+This browser edition does **not** use ChatGPT's private internal APIs and cannot inherit a ChatGPT consumer login session as an API credential. This static GitHub Pages build does not currently generate AI responses. It does not open ChatGPT in another tab and does not call private ChatGPT web APIs. OpenAI documents Sign in with ChatGPT plan usage for eligible open-source apps, but the published integration example relies on a supported local runtime that securely handles OAuth and credentials. A hosted browser-only site needs an applicable approved web integration or a supported runtime before it can show real AI replies without an API key.
 
 ## Deploy on GitHub Pages
 1. Open the repository Settings → Pages.
