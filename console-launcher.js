@@ -106,11 +106,10 @@
     if (!prompt) return;
     if (selectedFiles.length) prompt += "\n\nRepository context:\n" + selectedFiles.map(f => "--- " + f.path + " ---\n" + f.content).join("\n\n");
     addMessage("user", prompt);
-    const url = "https://chatgpt.com/?q=" + encodeURIComponent(prompt);
-    window.open(url, "_blank", "noopener");
+    addMessage("assistant", "Your message is saved in this panel. AI replies are not connected in this browser-only version, so nothing was sent to another tab. OpenAI supports ChatGPT-plan sign-in for eligible open-source local apps through its Sign in with ChatGPT flow; this static GitHub Pages site cannot use that local runtime. A supported web integration approval or a supported app runtime is needed for real AI replies here.");
     q(".nl-prompt").value = "";
     selectedFiles = [];
-    q(".nl-status").textContent = "Prompt opened in ChatGPT";
+    q(".nl-status").textContent = "Same-tab mode · AI not connected";
   });
   q(".nl-prompt").addEventListener("keydown", e => {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); q(".nl-send").click(); }
